@@ -44,7 +44,7 @@ function atomShape(x, y, d, h, n) {
     translate(this.x, this.y);
     rotate(this.a);
     for (i = 0; i < this.n; i++) {
-      rotate(i * (180.0 / this.n));
+      rotate( 180.0 / this.n);
       ellipse(0, 0, this.dia, this.h)
     }
     pop();
