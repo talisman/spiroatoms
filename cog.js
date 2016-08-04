@@ -14,27 +14,28 @@ function cog(x, y, orad, irad, n) {
     translate(this.x, this.y);
     noFill();
     stroke(100, 100, 100, 50);
-    strokeWeight(3);
-    //ellipse(0, 0, this.orad, this.orad);
-    ellipse(0, 0, this.irad/2, this.irad/2);
+    strokeWeight(1);
+    ellipse(0, 0, 2*this.orad + 8, 2*this.orad + 8);
+   // ellipse(0, 0, 2*this.irad, 2*this.irad);
 
     var angle = 360 / this.numofCogs;
     var halfAngle = angle/2.0;
+    strokeWeight(3);
     beginShape();
-    for (var a = 0; a < TWO_PI; a += angle) {
-      var sx = 0 + cos(a) * this.oradrad;
-      var sy = 0 + sin(a) * this.oradrad;
+    for (var a = 0; a < 360; a += angle) {
+      var sx = 0 + cos(a) * this.orad;
+      var sy = 0 + sin(a) * this.orad;
       vertex(sx, sy);
       sx = 0 + cos(a+halfAngle) * this.irad;
       sy = 0 + sin(a+halfAngle) * this.irad;
       vertex(sx, sy);
     }
      endShape(CLOSE);
-    
-    
+
+
     /*
     beginShape()
-    
+
 
     for (i = 0; i < this.numofCogs; i++) {
       rotate(360.0 / (2 * this.numofCogs));
@@ -42,8 +43,8 @@ function cog(x, y, orad, irad, n) {
       rotate(360.0 / (2 * this.numofCogs));
         vertex(0,60);
     }
-    
-    endShape(); 
+
+    endShape();
     */
   }
 
@@ -54,13 +55,13 @@ function cog(x, y, orad, irad, n) {
  push();
   translate(width*0.5, height*0.5);
   //rotate(frameCount / 50.0);
-  star(0, 0, 80, 100, 40); 
+  star(0, 0, 80, 100, 40);
   pop();
-  
+
   push();
   //translate(width*0.8, height*0.5);
   //rotate(frameCount / -100.0);
-  //star(0, 0, 30, 70, 5); 
+  //star(0, 0, 30, 70, 5);
   pop();
 }
 
