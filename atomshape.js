@@ -22,7 +22,6 @@ function atomShape(x, y, d, h, n) {
     if overlap -> display with this grey stroke , fill half 
       else if clicked -> display with wide stroke regular fill
         else -> display this stroke regular fill
-    
     */
     if (this.overlap)
       {
