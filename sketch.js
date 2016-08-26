@@ -1,21 +1,27 @@
 var shapes = [];
 var numOfShapes;
-var btn;
-var cg;
-
+var cogs = [];
+var gear;
 
 function setup() {
-  numOfShapes = 6;
-  createCanvas(700, 700);
+  numOfShapes = 0;
+  createCanvas(400, 400);
   angleMode(DEGREES);
-  cg = new Gears(width / 2, height / 2, 160, 80, 40);
+  for (var i = 0; i < numOfShapes; i++) {
+    cogs[i] = new Cog(random(width / 5, (width / 5) * 4), random(height / 5, (height / 5) * 4), random(40, 80), random(25, 50), floor(random(20, 40)));
+  }
+
 
   colorMode(RGB, 255, 255, 255, 100);
   for (var j = 0; j < numOfShapes; j++) {
     shapes[j] = new atomShape(random(50, width - 50), random(50, height - 50), random(85, 150), random(5, 45), round(random(2, 6)) * 2);
   }
-  var btn = createButton('A button');
+
+  gear = new gear(width / 2, height / 2, 80, 55, 40);
+
 }
+
+
 
 
 function mousePressed() {
@@ -30,8 +36,11 @@ function mousePressed() {
 
 function draw() {
   background(255);
-  cg.display();
- 
+  //clear();
+  gear.display();
+  for (var j = 0; j < cogs.length; j++) {
+    cogs[j].display();
+  }
   for (var i = 0; i < shapes.length; i++) {
     shapes[i].display();
     shapes[i].update();
